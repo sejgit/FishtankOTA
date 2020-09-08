@@ -1,6 +1,6 @@
 # sej adds
 .ccls-cache/
-
+.saves/
 
 # Prerequisites
 *.d

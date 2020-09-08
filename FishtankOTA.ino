@@ -1006,7 +1006,6 @@ void loop() {
         } else {
             Serial.print(extTempC,2);
         }
-
         display.setCursor(0,36);
         display.setTextSize(1);
         display.print(F(" Ambient:"));
@@ -1068,12 +1067,13 @@ void loop() {
     // flash local led hb if any non-standard condition otherwise off
     if(WiFi.status() != WL_CONNECTED || !mqttClient.connected() || tempAlarm > 0 ||
        tempF > tempHigh || tempF < tempLow || !lowLevelStatus) {
-        ledState = not(ledState);
+        if(currentMillis - ledMillis > ledInterval) {
+            ledMillis = currentMillis;
+            ledState = not(ledState);
+            digitalWrite(LED_BUILTIN, !ledState);
+        }
     } else {
         ledState = false;
-    }
-    if(currentMillis - ledMillis > ledInterval) {
-        ledMillis = currentMillis;
         digitalWrite(LED_BUILTIN, !ledState);
     }
 
