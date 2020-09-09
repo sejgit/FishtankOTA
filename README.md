@@ -11,3 +11,12 @@ DHT22 temperature humidity sensor for ambiant.
 Float sensor for tank level.
 OLED 128x64 I2C mono display for feedback.
 PB for reset.
+
+Pictures!
+
+![Image of Whole tank]
+(https://github.com/sejgit/FishTankOTA/images/whole_tank.png)
+
+![Image of up close]
+(https://github.com/sejgit/FishTankOTA/images/up_close.png)
+
