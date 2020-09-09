@@ -14,7 +14,7 @@ PB for reset.
 
 Pictures!
 
-![Image of Whole tank](https://raw.githubusercontent.com/sejgit/FishTankOTA/images/whole_tank.png)
+![Image of Whole tank](https://github.com/sejgit/FishTankOTA/images/whole_tank.png)
 
-![Image of up close](https://raw.githubusercontent.com/sejgit/FishTankOTA/images/up_close.png)
+![Image of up close](https://github.com/sejgit/FishTankOTA/images/up_close.png)
 
