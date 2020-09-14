@@ -993,7 +993,7 @@ void loop() {
         if(mqttClient.connected()) {
             const size_t capacity = JSON_OBJECT_SIZE(4);
             StaticJsonDocument<capacity> doc;
-            JsonObject obj = doc.createNestedObject("AM321");
+            JsonObject obj = doc.createNestedObject("AM2301");
             obj["Temperature"] = round(extTempF * 100) / 100;
             obj["Humidity"] = round(extHum * 10) / 10;
             serializeJson(doc, buffer);
