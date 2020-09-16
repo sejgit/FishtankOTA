@@ -1,13 +1,13 @@
 [
-  {"id": "docktemp", "type": "TempHumid", "status_topic": "sej/docktemp/status/temp", "cmd_topic": "sej/docktemp/control/null"},
+  {"id": "docktemp", "type": "Temp", "status_topic": "sej/docktemp/status/temp", "cmd_topic": "sej/docktemp/control/null"},
   {"id": "docktempled", "type": "switch", "status_topic": "sej/docktemp/status/led", "cmd_topic": "sej/docktemp/control/led"},
   {"id": "docktemphb", "type": "switch", "status_topic": "sej/docktemp/status/hb", "cmd_topic": "sej/docktemp/control/null"},
-  {"id": "pondtemp", "type": "TempHumid", "status_topic": "sej/pondtemp/status/temp", "cmd_topic": "sej/pondtemp/control/null"},
+  {"id": "pondtemp", "type": "Temp", "status_topic": "sej/pondtemp/status/temp", "cmd_topic": "sej/pondtemp/control/null"},
   {"id": "pondtempled", "type": "switch", "status_topic": "sej/pondtemp/status/led", "cmd_topic": "sej/pondtemp/control"},
   {"id": "pondtemphb", "type": "switch", "status_topic": "sej/pondtemp/status/hb", "cmd_topic": "sej/pondtemp/control/null"},
   {"id": "awning","type": "switch", "status_topic": "sej/awning/status/trigger", "cmd_topic": "sej/awning/control/trigger"},
   {"id": "awninghb","type": "switch", "status_topic": "sej/awning/status/hb", "cmd_topic": "sej/awning/control/null"},
-  {"id": "fishtanktemp", "type": "TempHumid", "status_topic": "sej/fishtank/status/temp", "cmd_topic": "sej/fishtank/control/null"},
+  {"id": "fishtanktemp", "type": "Temp", "status_topic": "sej/fishtank/status/temp", "cmd_topic": "sej/fishtank/control/null"},
   {"id": "fishtankexttemp", "type": "TempHumid", "status_topic": "sej/fishtank/status/exttemp", "cmd_topic": "sej/fishtank/control/null"},
   {"id": "fishtankrelay", "type": "switch", "status_topic": "sej/fishtank/status/relay", "cmd_topic": "sej/docktemp/control/relay"},
   {"id": "fishtankhb", "type": "switch", "status_topic": "sej/fishtank/status/hb", "cmd_topic": "sej/docktemp/control/null"}
