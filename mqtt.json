@@ -9,8 +9,8 @@
   {"id": "awninghb","type": "switch", "status_topic": "sej/awning/status/hb", "cmd_topic": "sej/awning/control/null"},
   {"id": "fishtanktemp", "type": "Temp", "status_topic": "sej/fishtank/status/temp", "cmd_topic": "sej/fishtank/control/null"},
   {"id": "fishtankexttemp", "type": "TempHumid", "status_topic": "sej/fishtank/status/exttemp", "cmd_topic": "sej/fishtank/control/null"},
-  {"id": "fishtankrelay", "type": "switch", "status_topic": "sej/fishtank/status/relay", "cmd_topic": "sej/docktemp/control/relay"},
-  {"id": "fishtanklow", "type": "flag", "status_topic": "sej/fishtank/status/lowlevel", "cmd_topic": "sej/docktemp/control/null"},
-  {"id": "fishtankhb", "type": "switch", "status_topic": "sej/fishtank/status/hb", "cmd_topic": "sej/docktemp/control/null"},
-  {"id": "fishtanktempalarm", "type": "flag", "status_topic": "sej/fishtank/status/tempalarm", "cmd_topic": "sej/docktemp/control/tempalarm"}
+  {"id": "fishtankrelay", "type": "switch", "status_topic": "sej/fishtank/status/relay", "cmd_topic": "sej/fishtank/control/relay"},
+  {"id": "fishtanklow", "type": "flag", "status_topic": "sej/fishtank/status/lowlevel", "cmd_topic": "sej/fishtank/control/lowlevel"},
+  {"id": "fishtankhb", "type": "switch", "status_topic": "sej/fishtank/status/hb", "cmd_topic": "sej/fishtank/control/null"},
+  {"id": "fishtanktempalarm", "type": "flag", "status_topic": "sej/fishtank/status/tempalarm", "cmd_topic": "sej/fishtank/control/tempalarm"}
 ]

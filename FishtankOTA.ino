@@ -97,9 +97,9 @@ const char* message_status_tempalarm[] = {"OK", "LO", "HI"};
 
 const char* topic_status_exttemp = "sej/fishtank/status/exttemp"; // extTemp reading topic
 
-const char* topic_control_templow = "sej/fishtank/control/templow"; // temp  control low topic
-const char* topic_control_temphigh = "sej/fishtank/control/temphigh"; // temp  control high topic
-const char* topic_control_tempalarm = "sej/fishtank/control/tempalarm"; // temp control alarm topic
+const char* topic_control_templow = "sej/fishtank/control/templow"; // temp control low topic
+const char* topic_control_temphigh = "sej/fishtank/control/temphigh"; // temp control high topic
+const char* topic_control_tempalarm = "sej/fishtank/control/tempalarm"; // temp control alarm reset topic
 const char* message_control_tempalarm[] = {"--", "RESET"};
 float tempLow;
 float tempHigh;
@@ -119,6 +119,8 @@ int relayOFF;
 
 const char* topic_status_lowlevel = "sej/fishtank/status/lowlevel"; // water low level topic
 const char* message_status_lowlevel[] = {"LO", "OK"};
+const char* topic_control_lowlevel = "sej/fishtank/control/lowlevel"; // water low level reset topic
+const char* message_control_lowlevel[] = {"--", "RESET"};
 boolean lowLevelStatus;
 
 const char* topic_status_hb = "sej/fishtank/status/hb"; // hb topic
@@ -443,6 +445,17 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
             if(mqttClient.connected()) {
                 mqttClient.publish(topic_status_tempalarm, message_status_tempalarm[0], true);
                 mqttClient.publish(topic_control_tempalarm, message_control_tempalarm[0], true);
+            }
+        }
+    }
+
+    // water low potential reset received
+    if(strcmp(topic, topic_control_lowlevel)==0){
+        // check if reset message
+        if (strcmp(mypayload, message_control_lowlevel[1]) == 0) {
+            lowlevelstatus = !lowlevelstatus;
+            if(mqttClient.connected()) {
+                mqttClient.publish(topic_control_lowlevel, message_control_lowlevel[0], true);
             }
         }
     }
