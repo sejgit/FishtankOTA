@@ -453,7 +453,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
     if(strcmp(topic, topic_control_lowlevel)==0){
         // check if reset message
         if (strcmp(mypayload, message_control_lowlevel[1]) == 0) {
-            lowlevelstatus = !lowlevelstatus;
+            lowLevelStatus = !lowLevelStatus;
             if(mqttClient.connected()) {
                 mqttClient.publish(topic_control_lowlevel, message_control_lowlevel[0], true);
             }
