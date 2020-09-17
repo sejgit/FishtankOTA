@@ -5,7 +5,7 @@
  *  --fqbn esp8266:8266:nodemcuv2
  *
  *  08/22/2020 SeJ init
- *  09/06/2020 SeJ V1.0
+ *  09/06/2020 SeJ V1.0 it works
  */
 
 
@@ -118,7 +118,7 @@ int relayON;
 int relayOFF;
 
 const char* topic_status_lowlevel = "sej/fishtank/status/lowlevel"; // water low level topic
-const char* message_status_lowlevel[] = {"ON", "OFF"};
+const char* message_status_lowlevel[] = {"LO", "OK"};
 boolean lowLevelStatus;
 
 const char* topic_status_hb = "sej/fishtank/status/hb"; // hb topic
@@ -158,7 +158,7 @@ int tempAlarmOld;
 
 // DHT-22 sensor for external temp/humidity
 // Data wire is pin D8 on the ESP8266 12-E - GPIO 15
-#define DHTTYPE DHT22 // DHT 22 (AM2302), AM321
+#define DHTTYPE DHT22 // DHT 22 (AM2301), AM321
 uint8_t DHTPin = D3;
 // Connect pin 1 (on the left) of the sensor to +5V
 // NOTE: If using a board with 3.3V logic like an Arduino Due connect pin 1
@@ -1049,15 +1049,13 @@ void loop() {
         display.setCursor(96,56);
         display.setTextSize(1);
         display.print(F("L:"));
-        if(lowLevelStatus){
-            Serial.print(F("Water Normal Level."));
-            display.print(F("OK"));
-        } else {
-            Serial.print(F("Water Low Level."));
+        Serial.print(F("Water Level: "));
+        Serial.println(message_status_lowlevel[lowLevelStatus]);
+        if(!lowLevelStatus){
             display.setTextColor(BLACK, WHITE); // reverse if currently out of spec
-            display.print(F("LO"));
-            display.setTextColor(WHITE, BLACK); // back to normal
         }
+        display.print(message_status_lowlevel[lowLevelStatus]);
+        display.setTextColor(WHITE, BLACK); // back to normal
         display.display();
         if(mqttClient.connected()) {
             mqttClient.publish(topic_status_lowlevel, message_status_lowlevel[lowLevelStatus], true);
