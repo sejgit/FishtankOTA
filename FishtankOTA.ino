@@ -1,11 +1,12 @@
 /*
- *  Pond temperature
+ *  FishtankOTA
  *
  *  Written for an ESP8266 ESP-12E
  *  --fqbn esp8266:8266:nodemcuv2
  *
  *  08/22/2020 SeJ init
  *  09/06/2020 SeJ V1.0 it works
+ *  09/17/2020 SjJ Integrated to ISY
  */
 
 
