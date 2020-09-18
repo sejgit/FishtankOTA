@@ -271,6 +271,7 @@ boolean initMQTT() {
         mqttClient.subscribe(topic_control_templow);
         mqttClient.subscribe(topic_control_temphigh);
         mqttClient.subscribe(topic_control_tempalarm);
+        mqttClient.subscribe(topic_control_lowlevel);
         return true;
     } else {
         return false;
@@ -455,6 +456,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
         if (strcmp(mypayload, message_control_lowlevel[1]) == 0) {
             lowLevelStatus = !lowLevelStatus;
             if(mqttClient.connected()) {
+                mqttClient.publish(topic_status_lowlevel, message_status_lowlevel[1], true);
                 mqttClient.publish(topic_control_lowlevel, message_control_lowlevel[0], true);
             }
         }
