@@ -22,7 +22,6 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include <WiFiUdp.h>
 #include <TimeLib.h>
 #include <Timezone.h>
 #include <LittleFS.h>
