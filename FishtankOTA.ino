@@ -126,7 +126,7 @@ boolean lowLevelStatus;
 const char* topic_status_hb = "sej/fishtank/status/hb"; // hb topic
 const char* message_status_hb[] = {"ON", "OFF"};
 
-const char* message_status_server[] = {"NOK", "OK"};
+const char* message_status_server[] = {"NOK", "OK "};
 
 const char* willTopic = topic; // will topic
 byte willQoS = 0;
