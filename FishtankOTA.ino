@@ -6,7 +6,7 @@
  *
  *  08/22/2020 SeJ init
  *  09/06/2020 SeJ V1.0 it works
- *  09/17/2020 SjJ Integrated to ISY
+ *  09/17/2020 SeJ Integrated to ISY
  */
 
 
