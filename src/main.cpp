@@ -20,12 +20,13 @@
 #include <ArduinoJson.h>
 #include <SPI.h>
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include <time.h>
 #include <TimeLib.h>
 #include <Timezone.h>
 #include <LittleFS.h>
 #include <DHT.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
 
 /* Passwords & Ports
@@ -33,7 +34,7 @@
  * ISY: hash, isy, isyport
  * MQTT mqtt_server, mqtt_serverport
  */
-#include <../../../../../../../../../Projects/keys/sej/sej.h>
+#include </Users/stephenjenkins/Projects/keys/sej/sej.h>
 
 
 /*
@@ -321,7 +322,7 @@ boolean updateRelay(boolean switchrange) {
             relayState = false;
         }
     }
-    if(relayState != relayStateOld || switchrange) {
+    if(relayState != relayStateOld) {
         digitalWrite(relay, !relayState); // reverse logic for relay
         Serial.print(F("Relay: "));
         Serial.println(message_status_relay[!relayState]);
@@ -541,6 +542,8 @@ boolean updateTemperatureAlarm() {
  */
 const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
 byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
+
+void sendNTPpacket(IPAddress &address);
 
 time_t getNtpTime()
 {
