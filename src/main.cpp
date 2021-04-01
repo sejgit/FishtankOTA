@@ -112,7 +112,7 @@ const char* topic_status_relayon = "sej/fishtank/status/relayon"; // status rela
 const char* topic_status_relayoff = "sej/fishtank/status/relayoff"; // status relay off topic
 
 const char* topic_control_relay = "sej/fishtank/control/relay"; // control relay state topic
-const char* message_control_relay[] = {"ON", "OFF"};
+const char* message_control_relay[] = {"ON", "OFF", "---"};
 const char* topic_control_relayon = "sej/fishtank/control/relayon"; // control relay on topic
 const char* topic_control_relayoff = "sej/fishtank/control/relayoff"; // control relay off topic
 int relayON;
@@ -368,8 +368,14 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
     if(strcmp(topic, topic_control_relay)==0){
         if (strcmp((char *)mypayload, (char *)message_control_relay[0]) == 0) {
             relayState = true;
+            if(mqttClient.connected()) {
+                mqttClient.publish(topic_control_relay, message_control_relay[2], true);
+            }
         } else if (strcmp((char *)mypayload, (char *)message_control_relay[1]) == 0) {
             relayState = false;
+            if(mqttClient.connected()) {
+                mqttClient.publish(topic_control_relay, message_control_relay[2], true);
+            }
         }
     }
 
