@@ -369,12 +369,12 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
         if (strcmp((char *)mypayload, (char *)message_control_relay[0]) == 0) {
             relayState = true;
             if(mqttClient.connected()) {
-                mqttClient.publish(topic_control_relay, message_control_relay[2], true);
+                mqttClient.publish(topic_control_relay, message_control_relay[2], false);
             }
         } else if (strcmp((char *)mypayload, (char *)message_control_relay[1]) == 0) {
             relayState = false;
             if(mqttClient.connected()) {
-                mqttClient.publish(topic_control_relay, message_control_relay[2], true);
+                mqttClient.publish(topic_control_relay, message_control_relay[2], false);
             }
         }
     }
